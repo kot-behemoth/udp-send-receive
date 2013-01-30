@@ -1,0 +1,223 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2367F7D416B96B96005D6FCC /* UDPSend.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2367F7D316B96B96005D6FCC /* UDPSend.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2367F7CC16B96B96005D6FCC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				2367F7D416B96B96005D6FCC /* UDPSend.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2367F7CE16B96B96005D6FCC /* UDPSend */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UDPSend; sourceTree = BUILT_PRODUCTS_DIR; };
+		2367F7D316B96B96005D6FCC /* UDPSend.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = UDPSend.1; sourceTree = "<group>"; };
+		2367F7F816B96C1F005D6FCC /* hsfsocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hsfsocket.cpp; sourceTree = "<group>"; };
+		2367F7F916B96C1F005D6FCC /* hsfsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hsfsocket.h; sourceTree = "<group>"; };
+		2367F7FA16B96C1F005D6FCC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2367F7CB16B96B96005D6FCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2367F7C516B96B96005D6FCC = {
+			isa = PBXGroup;
+			children = (
+				2367F7D016B96B96005D6FCC /* UDPSend */,
+				2367F7CF16B96B96005D6FCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2367F7CF16B96B96005D6FCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2367F7CE16B96B96005D6FCC /* UDPSend */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2367F7D016B96B96005D6FCC /* UDPSend */ = {
+			isa = PBXGroup;
+			children = (
+				2367F7F816B96C1F005D6FCC /* hsfsocket.cpp */,
+				2367F7F916B96C1F005D6FCC /* hsfsocket.h */,
+				2367F7FA16B96C1F005D6FCC /* main.cpp */,
+				2367F7D316B96B96005D6FCC /* UDPSend.1 */,
+			);
+			path = UDPSend;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2367F7CD16B96B96005D6FCC /* UDPSend */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2367F7D716B96B96005D6FCC /* Build configuration list for PBXNativeTarget "UDPSend" */;
+			buildPhases = (
+				2367F7CA16B96B96005D6FCC /* Sources */,
+				2367F7CB16B96B96005D6FCC /* Frameworks */,
+				2367F7CC16B96B96005D6FCC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UDPSend;
+			productName = UDPSend;
+			productReference = 2367F7CE16B96B96005D6FCC /* UDPSend */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2367F7C616B96B96005D6FCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Me;
+			};
+			buildConfigurationList = 2367F7C916B96B96005D6FCC /* Build configuration list for PBXProject "UDPSend" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2367F7C516B96B96005D6FCC;
+			productRefGroup = 2367F7CF16B96B96005D6FCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2367F7CD16B96B96005D6FCC /* UDPSend */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2367F7CA16B96B96005D6FCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2367F7D516B96B96005D6FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2367F7D616B96B96005D6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2367F7D816B96B96005D6FCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2367F7D916B96B96005D6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2367F7C916B96B96005D6FCC /* Build configuration list for PBXProject "UDPSend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2367F7D516B96B96005D6FCC /* Debug */,
+				2367F7D616B96B96005D6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2367F7D716B96B96005D6FCC /* Build configuration list for PBXNativeTarget "UDPSend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2367F7D816B96B96005D6FCC /* Debug */,
+				2367F7D916B96B96005D6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2367F7C616B96B96005D6FCC /* Project object */;
+}
