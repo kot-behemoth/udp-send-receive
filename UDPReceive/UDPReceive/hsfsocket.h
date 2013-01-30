@@ -10,7 +10,7 @@
 
 #ifdef USEWINSOCK
 	#include <winsock2.h>		// This must be before windows.h
-	#include <windows.h>		// to prevent incluseion of winsock.h
+	#include <windows.h>		// to prevent inclusion of winsock.h
 #endif
 
 #ifdef USEWINSOCK

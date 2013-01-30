@@ -28,7 +28,7 @@ class CUDPSocket
 public:
 	CUDPSocket();
 	~CUDPSocket();
-	
+
 	int MakeNonBlocking(void);
 	int Initialise(void);
 	int Bind(const int Port);

@@ -29,19 +29,19 @@ CUDPSocket::~CUDPSocket()
 #ifdef USEUNIX
 	if(m_Socket)close(m_Socket);
 #endif
-	
+
 #ifdef USEWINSOCK
 	if(m_Socket)closesocket(m_Socket);
 	WSACleanup ();
 #endif
-	
+
 	m_Socket = 0;
 }
 
 
 int CUDPSocket::MakeNonBlocking(void)
 {
-	
+
 #ifdef USEUNIX
 	if ((fcntl(m_Socket, F_SETFL, O_NONBLOCK)) < 0)
 		{
@@ -49,7 +49,7 @@ int CUDPSocket::MakeNonBlocking(void)
 			return 0;
 		}
 #endif
-		
+
 #ifdef USEWINSOCK
 	u_long NonBlocking = TRUE;
 	if ((ioctlsocket(m_Socket, FIONBIO, (u_long*)&NonBlocking)) == SOCKET_ERROR)
@@ -57,11 +57,11 @@ int CUDPSocket::MakeNonBlocking(void)
 			printf("Error:  Can't make Socket nonblocking\n");
 			return 0;
 		}
-#endif	
-		
+#endif
+
 	return 1;
 }
-	
+
 int CUDPSocket::Initialise(void)
 {
 #ifdef USEWINSOCK
@@ -78,15 +78,15 @@ int CUDPSocket::Initialise(void)
 		return 0;
 	}
 #endif
-	
+
 	// socket creation
 	m_Socket = socket(AF_INET, SOCK_DGRAM, 0);
-	if(m_Socket<0) 
+	if(m_Socket<0)
 	{
 		printf("Cannot open socket \n");
 		return 0;
 	}
-	
+
 	return 1;
 }
 
@@ -96,29 +96,29 @@ int CUDPSocket::Bind(const int Port)
 	m_LocalAddress.sin_family 		= AF_INET;
 	m_LocalAddress.sin_addr.s_addr 	= htonl(INADDR_ANY);
 	m_LocalAddress.sin_port 		= htons(Port);
-	
+
 	int rc = bind (m_Socket, (struct sockaddr *)&m_LocalAddress, m_SocketAddressSize);
-	if(rc<0) 
+	if(rc<0)
 	{
 		printf("cannot bind port number %d \n", Port);
 		return 0;
 	}
 
-	return 1;	
+	return 1;
 }
 
 int CUDPSocket::Receive(char * Buffer)
 {
 	int n = recvfrom(m_Socket, Buffer, PACKETSIZE, 0, (struct sockaddr *)&m_RemoteAddress, &m_SocketAddressSize);
-	
-	return n;	
+
+	return n;
 }
 
 int CUDPSocket::Send(char * Buffer)
 {
 	int n = sendto(m_Socket, Buffer, PACKETSIZE, 0, (struct sockaddr *)&m_RemoteAddress, m_SocketAddressSize);
-	
-	return n;	
+
+	return n;
 }
 
 sockaddr_in CUDPSocket::GetDestinationAddress(void)
@@ -132,6 +132,4 @@ void CUDPSocket::SetDestinationAddress(char * IP, const int Port)
 	m_RemoteAddress.sin_port = htons (Port);
 	m_RemoteAddress.sin_addr.s_addr = inet_addr (IP);
 }
-
-
 
