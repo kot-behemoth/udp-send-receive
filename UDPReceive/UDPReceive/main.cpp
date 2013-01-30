@@ -5,6 +5,12 @@ An example of a peer-to-peer UDP Receive application
 #include <stdio.h>
 #include "hsfsocket.h"
 
+#ifdef USEUNIX
+	#include <string>
+	#include <unistd.h>
+	#define Sleep usleep
+#endif
+
 #define LOCALPORT (1500)
 #define REMOTEPORT (1501)
 
@@ -31,7 +37,7 @@ int main(int argc, char *argv[])
 	int Data = -1;
 	
 	/* Infinite loop */
-	while(1) 
+	while(1)
 	{		
 		/* receive packet in to the buffer*/
 		int n = UDPSocket.Receive(Buffer);

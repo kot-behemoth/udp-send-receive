@@ -2,10 +2,11 @@
 #define _HSFSOCKET_H_
 
 //#define USEWINSOCK
-#define USEUNIX
+//#define USEUNIX
 
 #ifdef USEUNIX
 	#include <netinet/in.h>		//IPv4 socket address structures
+	#include <arpa/inet.h>
 #endif
 
 #ifdef USEWINSOCK
@@ -18,6 +19,7 @@
 #endif
 
 #ifdef USEUNIX
+	#define SOCKET_ERROR -1
 	typedef  int SOCKET;
 #endif
 
