@@ -66,8 +66,8 @@ int main(int argc, char *argv[])
 			// SEND
 
 			// Copy the data into the buffer and send it
-			memcpy(receivingBuffer, &sendPacket, sizeof(MyPacket_t));
-			int sendResult = localSocket.Send(receivingBuffer);
+			memcpy(localBuffer, &sendPacket, sizeof(MyPacket_t));
+			int sendResult = localSocket.Send(localBuffer);
 
 			// There has been an error
 			if(sendResult == SOCKET_ERROR)
