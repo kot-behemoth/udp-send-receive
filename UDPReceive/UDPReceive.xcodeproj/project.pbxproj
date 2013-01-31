@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2367F7FF16B983D2005D6FCC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2367F7F716B96C15005D6FCC /* main.cpp */; };
+		23D51D2516BAED6C000A6ECB /* hsfsocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23D51D2416BAED6C000A6ECB /* hsfsocket.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +26,9 @@
 /* Begin PBXFileReference section */
 		2367F7E316B96BA9005D6FCC /* UDPReceive */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UDPReceive; sourceTree = BUILT_PRODUCTS_DIR; };
 		2367F7F716B96C15005D6FCC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		23D51D1D16BA9726000A6ECB /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = packets.h; path = ../../UDPSend/UDPSend/packets.h; sourceTree = "<group>"; };
-		23D51D1E16BA9726000A6ECB /* hsfsocket.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = hsfsocket.h; path = ../../UDPSend/UDPSend/hsfsocket.h; sourceTree = "<group>"; };
-		23D51D2016BA9726000A6ECB /* hsfsocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = hsfsocket.cpp; path = ../../UDPSend/UDPSend/hsfsocket.cpp; sourceTree = "<group>"; };
+		23D51D2216BAED6C000A6ECB /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packets.h; sourceTree = "<group>"; };
+		23D51D2316BAED6C000A6ECB /* hsfsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hsfsocket.h; sourceTree = "<group>"; };
+		23D51D2416BAED6C000A6ECB /* hsfsocket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hsfsocket.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +61,9 @@
 		2367F7E516B96BA9005D6FCC /* UDPReceive */ = {
 			isa = PBXGroup;
 			children = (
-				23D51D1D16BA9726000A6ECB /* packets.h */,
-				23D51D1E16BA9726000A6ECB /* hsfsocket.h */,
-				23D51D2016BA9726000A6ECB /* hsfsocket.cpp */,
+				23D51D2216BAED6C000A6ECB /* packets.h */,
+				23D51D2316BAED6C000A6ECB /* hsfsocket.h */,
+				23D51D2416BAED6C000A6ECB /* hsfsocket.cpp */,
 				2367F7F716B96C15005D6FCC /* main.cpp */,
 			);
 			path = UDPReceive;
@@ -120,6 +121,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2367F7FF16B983D2005D6FCC /* main.cpp in Sources */,
+				23D51D2516BAED6C000A6ECB /* hsfsocket.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +156,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -179,7 +181,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				SDKROOT = "";
 			};
 			name = Release;
 		};

@@ -1,63 +1,71 @@
 /*
-An example of a peer-to-peer UDP Receive application
-*/
+ An example of a peer-to-peer UDP sending application
+ */
 
 #include <stdio.h>
+#include <string>
+#include <unistd.h>
 #include "hsfsocket.h"
 
-#ifdef USEUNIX
-	#include <string>
-	#include <unistd.h>
-	#define Sleep usleep
-#endif
-
-#define LOCALPORT (1500)
-#define REMOTEPORT (1501)
+const int LOCALPORT = 1500;
+const int REMOTEPORT  = 1501;
 
 int main(int argc, char *argv[])
 {
-	CUDPSocket UDPSocket;
-	char Buffer[PACKETSIZE];
+	/*
+	  REMOTESOCKET setup
+	 */
 
-	UDPSocket.Initialise();
-	UDPSocket.MakeNonBlocking();
-
+	CUDPSocket remoteSocket;
+	remoteSocket.Initialise();
+	remoteSocket.MakeNonBlocking();
 	//The socket must be bound so that we know the port number
-	UDPSocket.Bind(LOCALPORT);
-
+	remoteSocket.Bind(REMOTEPORT);
 	//Define where we are sending the data
-	UDPSocket.SetDestinationAddress("127.0.0.1", REMOTEPORT);
+	remoteSocket.SetDestinationAddress("127.0.0.1", LOCALPORT);
+
+	printf("Sending data from UDPport:%u to UDPport:%u\n\n", LOCALPORT, REMOTEPORT);
 
 	// Clear the buffer memory
-	memset(Buffer, 0x0, PACKETSIZE);
+	byte receivingBuffer[sizeof(MyPacket_t)];
+	memset(receivingBuffer, 0x0, sizeof(MyPacket_t));
 
-	printf("Waiting for data on port UDP %u\n\n", LOCALPORT);
+	byte acknowledgementBuffer[sizeof(MyPacket_t)];
+	memset(acknowledgementBuffer, 0x0, sizeof(MyPacket_t));
 
-	// The data we will receive
-	int Data = -1;
+	// Initialise the packet
+	MyPacket_t receivePacket = MyPacket_t();
 
-	/* Infinite loop */
-	while(1)
+	/* infinite loop */
+	while(true)
 	{
-		/* receive packet in to the buffer*/
-		int n = UDPSocket.Receive(Buffer);
+		// RECEIVE
+
+		/* receive packet in to the buffer */
+		int receiveResult = remoteSocket.Receive(receivingBuffer);
 
 		// if n>0 we have got some data
-		if(n>0)
+		if(receiveResult > 0)
 		{
 			// got some data
-			memcpy(&Data, Buffer, sizeof(int));
-			printf("Received from %s:UDP%u : %d \n",
-			inet_ntoa(UDPSocket.GetDestinationAddress().sin_addr),
-			ntohs(UDPSocket.GetDestinationAddress().sin_port),
-			Data);
+			memcpy(&receivePacket, receivingBuffer, sizeof(MyPacket_t));
+			printf("Received from %s: UDP%u \n",
+				inet_ntoa(remoteSocket.GetDestinationAddress().sin_addr),
+				ntohs(remoteSocket.GetDestinationAddress().sin_port));
+
+			int sendResult = remoteSocket.Send(receivingBuffer);
+			// There has been an error
+			if(sendResult == SOCKET_ERROR) printf("Acknowledgement send failed\n");
+
+			// data has been sent
+			if(sendResult > 0)
+			{
+				printf("Send an acknowldment for ID %d\n", receivePacket.ID);
+			}
 		}
 
-	// go round the loop 10 times per second
-	Sleep(100);
+		usleep(1000);
 	}
 
 	return 0;
 }
-
-
