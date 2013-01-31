@@ -8,8 +8,6 @@
 #define SOCKET_ERROR -1
 typedef  int SOCKET;
 
-// #define PACKETSIZE (80)
-
 class CUDPSocket
 {
 	public:

@@ -7,8 +7,8 @@
 #include <unistd.h>
 #include "hsfsocket.h"
 
-#define LOCALPORT (1501)
-#define REMOTEPORT (1500)
+const int LOCALPORT  = 1501;
+const int REMOTEPORT = 1500;
 
 int main(int argc, char *argv[])
 {
