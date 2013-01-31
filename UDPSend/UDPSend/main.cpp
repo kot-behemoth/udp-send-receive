@@ -13,7 +13,7 @@ const int REMOTEPORT = 1500;
 int main(int argc, char *argv[])
 {
 	CUDPSocket UDPSocket;
-	char Buffer[PACKETSIZE];
+	byte Buffer[PACKETSIZE];
 
 	UDPSocket.Initialise();
   	UDPSocket.MakeNonBlocking();
@@ -28,30 +28,31 @@ int main(int argc, char *argv[])
 
 	printf("Sending data from UDPport:%u to UDPport:%u\n\n", LOCALPORT, REMOTEPORT);
 
-	int Data = 0;
+	// Initialise the packet
+	MyPacket_t packet = MyPacket_t();
+	packet.Acceleration = 1.0f;
 
 	/* infinite loop */
 	while(1)
 	{
 		// Copy the data into the buffer and send it
-		memcpy(Buffer, &Data, sizeof(int));
-		int n = UDPSocket.Send(Buffer);
+		memcpy(Buffer, &packet, PACKETSIZE);
+		int result = UDPSocket.Send(Buffer);
 
 		// There has been an error
-		if(n == SOCKET_ERROR)
+		if(result == SOCKET_ERROR)
 		{
 			printf("Send failed\n");
 		}
 
 		// data has been sent
-		if(n>0)
+		if(result > 0)
 		{
-			printf("Sent %d to IP:%s UDP PORT:%u\n",
-				   Data,
+			printf("Sent to IP:%s UDP PORT:%u\n",
 				   inet_ntoa(UDPSocket.GetDestinationAddress().sin_addr),
 				   ntohs(UDPSocket.GetDestinationAddress().sin_port));
-
-			Data++;
+		    packet.Inspect();
+		    packet.Velocity += packet.Acceleration;
 		}
 
 		usleep(500);
@@ -59,5 +60,3 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
-
-

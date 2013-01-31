@@ -62,14 +62,14 @@ int CUDPSocket::Bind(const int Port)
 	return 1;
 }
 
-int CUDPSocket::Receive(char * Buffer)
+int CUDPSocket::Receive(byte * Buffer)
 {
 	int n = recvfrom(m_Socket, Buffer, PACKETSIZE, 0, (struct sockaddr *)&m_RemoteAddress, &m_SocketAddressSize);
 
 	return n;
 }
 
-int CUDPSocket::Send(char * Buffer)
+int CUDPSocket::Send(byte * Buffer)
 {
 	int n = sendto(m_Socket, Buffer, PACKETSIZE, 0, (struct sockaddr *)&m_RemoteAddress, m_SocketAddressSize);
 

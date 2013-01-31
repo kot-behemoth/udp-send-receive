@@ -7,6 +7,7 @@
 
 #define SOCKET_ERROR -1
 typedef  int SOCKET;
+typedef  char byte;
 
 class CUDPSocket
 {
@@ -17,8 +18,8 @@ class CUDPSocket
 		int MakeNonBlocking(void);
 		int Initialise(void);
 		int Bind(const int Port);
-		int Receive(char * Buffer);
-		int Send(char * Buffer);
+		int Receive(byte * Buffer);
+		int Send(byte * Buffer);
 		void SetDestinationAddress(char * IP, const int Port);
 		sockaddr_in GetDestinationAddress(void);
 
