@@ -27,7 +27,6 @@
 		2367F7F716B96C15005D6FCC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		23D51D1D16BA9726000A6ECB /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = packets.h; path = ../../UDPSend/UDPSend/packets.h; sourceTree = "<group>"; };
 		23D51D1E16BA9726000A6ECB /* hsfsocket.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = hsfsocket.h; path = ../../UDPSend/UDPSend/hsfsocket.h; sourceTree = "<group>"; };
-		23D51D1F16BA9726000A6ECB /* packets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; name = packets.cpp; path = ../../UDPSend/UDPSend/packets.cpp; sourceTree = "<group>"; };
 		23D51D2016BA9726000A6ECB /* hsfsocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = file; name = hsfsocket.cpp; path = ../../UDPSend/UDPSend/hsfsocket.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +62,6 @@
 			children = (
 				23D51D1D16BA9726000A6ECB /* packets.h */,
 				23D51D1E16BA9726000A6ECB /* hsfsocket.h */,
-				23D51D1F16BA9726000A6ECB /* packets.cpp */,
 				23D51D2016BA9726000A6ECB /* hsfsocket.cpp */,
 				2367F7F716B96C15005D6FCC /* main.cpp */,
 			);

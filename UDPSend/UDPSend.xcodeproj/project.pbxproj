@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2367F7FB16B983C0005D6FCC /* hsfsocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2367F7F816B96C1F005D6FCC /* hsfsocket.cpp */; };
 		2367F7FD16B983C3005D6FCC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2367F7FA16B96C1F005D6FCC /* main.cpp */; };
-		23D51D1A16BA90E4000A6ECB /* packets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23D51D1816BA90E4000A6ECB /* packets.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +28,6 @@
 		2367F7F816B96C1F005D6FCC /* hsfsocket.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hsfsocket.cpp; sourceTree = "<group>"; };
 		2367F7F916B96C1F005D6FCC /* hsfsocket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hsfsocket.h; sourceTree = "<group>"; };
 		2367F7FA16B96C1F005D6FCC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		23D51D1816BA90E4000A6ECB /* packets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = packets.cpp; sourceTree = "<group>"; };
 		23D51D1916BA90E4000A6ECB /* packets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packets.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +79,6 @@
 		23D51D1C16BA912E000A6ECB /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				23D51D1816BA90E4000A6ECB /* packets.cpp */,
 				2367F7F816B96C1F005D6FCC /* hsfsocket.cpp */,
 				2367F7FA16B96C1F005D6FCC /* main.cpp */,
 			);
@@ -141,7 +138,6 @@
 			files = (
 				2367F7FB16B983C0005D6FCC /* hsfsocket.cpp in Sources */,
 				2367F7FD16B983C3005D6FCC /* main.cpp in Sources */,
-				23D51D1A16BA90E4000A6ECB /* packets.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +174,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SYMROOT = build;
 			};
 			name = Debug;
 		};

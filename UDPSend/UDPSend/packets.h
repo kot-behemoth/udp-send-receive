@@ -14,7 +14,7 @@ struct MyPacket_t
 
 	MyPacket_t()
 	{
-		ID = 0;
+		ID = 1;
 		Time = 0;
 		x = y = z = 0.0f;
 		Velocity = 0.0f;
@@ -28,11 +28,10 @@ struct MyPacket_t
 				  << " time: " << Time
 				  << " v: " << Velocity
 				  << " a: " << Acceleration
-				  << " }";
+				  << " }"
+				  << std::endl;
 	}
 
 };
-
-extern const int PACKETSIZE;
 
 #endif
