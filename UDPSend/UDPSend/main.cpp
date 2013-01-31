@@ -3,9 +3,9 @@
  */
 
 #include <stdio.h>
-#include "hsfsocket.h"
 #include <string>
 #include <unistd.h>
+#include "hsfsocket.h"
 
 #define LOCALPORT (1501)
 #define REMOTEPORT (1500)
