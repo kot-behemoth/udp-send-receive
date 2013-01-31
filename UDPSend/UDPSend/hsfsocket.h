@@ -1,27 +1,11 @@
 #ifndef _HSFSOCKET_H_
 #define _HSFSOCKET_H_
 
-//#define USEWINSOCK
-//#define USEUNIX
+#include <netinet/in.h>		//IPv4 socket address structures
+#include <arpa/inet.h>
 
-#ifdef USEUNIX
-	#include <netinet/in.h>		//IPv4 socket address structures
-	#include <arpa/inet.h>
-#endif
-
-#ifdef USEWINSOCK
-	#include <winsock2.h>		// This must be before windows.h
-	#include <windows.h>		// to prevent incluseion of winsock.h
-#endif
-
-#ifdef USEWINSOCK
-	typedef  int socklen_t;
-#endif
-
-#ifdef USEUNIX
-	#define SOCKET_ERROR -1
-	typedef  int SOCKET;
-#endif
+#define SOCKET_ERROR -1
+typedef  int SOCKET;
 
 #define PACKETSIZE (80)
 
@@ -45,9 +29,6 @@ protected:
 	int m_Ret;
 	struct sockaddr_in m_LocalAddress, m_RemoteAddress;
 
-#ifdef USEWINSOCK
-	WSADATA m_WSData;
-#endif
 };
 
 #endif

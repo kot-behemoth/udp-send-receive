@@ -1,22 +1,11 @@
 #include "hsfsocket.h"
-
-#ifdef USEUNIX
-	#include <stdio.h>
-	#include <unistd.h>			//UNIX stuff needed for close()
-	#include <netinet/in.h>		//IPv4 socket address structures
-	#include <netdb.h>			//Access to DNS lookup
-	#include <arpa/inet.h>		//inet_ntop functions
-	#include <sys/socket.h>		//Socket functions
-	#include <fcntl.h>
-#endif
-
-#ifdef USEWINSOCK
-	#include <stdio.h>
-#endif
-
-#ifdef USEWINSOCK
-	#pragma comment (lib, "ws2_32.lib")
-#endif
+#include <stdio.h>
+#include <unistd.h>			//UNIX stuff needed for close()
+#include <netinet/in.h>		//IPv4 socket address structures
+#include <netdb.h>			//Access to DNS lookup
+#include <arpa/inet.h>		//inet_ntop functions
+#include <sys/socket.h>		//Socket functions
+#include <fcntl.h>
 
 CUDPSocket::CUDPSocket()
 {
@@ -26,14 +15,7 @@ CUDPSocket::CUDPSocket()
 
 CUDPSocket::~CUDPSocket()
 {
-#ifdef USEUNIX
 	if(m_Socket)close(m_Socket);
-#endif
-
-#ifdef USEWINSOCK
-	if(m_Socket)closesocket(m_Socket);
-	WSACleanup ();
-#endif
 
 	m_Socket = 0;
 }
@@ -41,44 +23,17 @@ CUDPSocket::~CUDPSocket()
 
 int CUDPSocket::MakeNonBlocking(void)
 {
-
-#ifdef USEUNIX
 	if ((fcntl(m_Socket, F_SETFL, O_NONBLOCK)) < 0)
 		{
 			printf("Error:  Can't make Socket nonblocking\n");
 			return 0;
 		}
-#endif
-
-#ifdef USEWINSOCK
-	u_long NonBlocking = TRUE;
-	if ((ioctlsocket(m_Socket, FIONBIO, (u_long*)&NonBlocking)) == SOCKET_ERROR)
-		{
-			printf("Error:  Can't make Socket nonblocking\n");
-			return 0;
-		}
-#endif
 
 	return 1;
 }
 
 int CUDPSocket::Initialise(void)
 {
-#ifdef USEWINSOCK
-	int error = WSAStartup (0x0202,&m_WSData);
-	if (error)
-	{
-		printf("You need WinSock 2.2\n");
-		return 0;
-	}
-	if (m_WSData.wVersion!=0x0202)
-	{
-		printf("Error:  Wrong WinSock version!\n");
-		WSACleanup ();
-		return 0;
-	}
-#endif
-
 	// socket creation
 	m_Socket = socket(AF_INET, SOCK_DGRAM, 0);
 	if(m_Socket<0)
