@@ -20,7 +20,6 @@ CUDPSocket::~CUDPSocket()
 	m_Socket = 0;
 }
 
-
 int CUDPSocket::MakeNonBlocking(void)
 {
 	if ((fcntl(m_Socket, F_SETFL, O_NONBLOCK)) < 0)

@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	//Define where we are sending the data
 	remoteSocket.SetDestinationAddress("127.0.0.1", LOCALPORT);
 
-	printf("Sending data from UDPport:%u to UDPport:%u\n\n", LOCALPORT, REMOTEPORT);
+	printf("Receiving data FROM: [%u]\n\n", LOCALPORT, REMOTEPORT);
 
 	// Clear the buffer memory
 	byte receivingBuffer[sizeof(MyPacket_t)];
@@ -49,22 +49,19 @@ int main(int argc, char *argv[])
 		{
 			// got some data
 			memcpy(&receivePacket, receivingBuffer, sizeof(MyPacket_t));
-			printf("Received from %s: UDP%u \n",
+			printf("Received from IP: [%s] PORT: [%u]\n",
 				inet_ntoa(remoteSocket.GetDestinationAddress().sin_addr),
 				ntohs(remoteSocket.GetDestinationAddress().sin_port));
 
 			int sendResult = remoteSocket.Send(receivingBuffer);
-			// There has been an error
-			if(sendResult == SOCKET_ERROR) printf("Acknowledgement send failed\n");
-
 			// data has been sent
 			if(sendResult > 0)
 			{
-				printf("Send an acknowldment for ID %d\n", receivePacket.ID);
+				printf("Received an acknowldment for ID %d\n", receivePacket.ID);
 			}
 		}
 
-		usleep(1000);
+		usleep(1000000);
 	}
 
 	return 0;
