@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 			// data has been sent
 			if(sendResult > 0)
 			{
-				printf("Received an acknowldment for ID %d\n", receivePacket.ID);
+				printf("Sent an acknowldment for ID %d\n", receivePacket.ID);
 			}
 		}
 

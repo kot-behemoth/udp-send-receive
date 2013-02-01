@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 		if(receiveResult > 0)
 		{
 			memcpy(&receivePacket, receivingBuffer, sizeof(MyPacket_t));
-			printf("Sent an acknowldment for ID %d\n", receivePacket.ID);
+			printf("Received an acknowldment for ID %d\n", receivePacket.ID);
 			receivedID = receivePacket.ID;
 		}
 
